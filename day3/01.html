@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+    html {
+      background-size: cover;
+      text-align: center;
+      font-size: 10px;
+    }
+    
+    .controls {
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Update CSS variables with js</h1>
+  <div class="controls">
+    <label for="spaceing">Spaceing:</label>
+    <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+    <label for="spaceing">Blur:</label>
+    <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+    <label for="spaceing">Base Color:</label>
+    <input type="range" name="base" value="#ffc600">
+  </div>
+
+  <img src="https://picsum.photos/300/300/?random=60">
+</body>
+<script type="text/javascript" src="01.js"></script>
+</html>
