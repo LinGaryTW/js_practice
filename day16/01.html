@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .hero {
+      text-align: center;
+      height: 100vh;
+    }
+    h1 {
+      display: inline-block;
+      margin-top: 100px;
+      text-shadow: 10px 10px rgba(0, 0, 0, 1);
+      font-size: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1 contenteditable>
+      WOOOOW!
+    </h1>
+  </div>
+</body>
+<script>
+  const hero = document.querySelector('.hero');
+  const text = document.querySelector('h1');
+  const walk = 100;
+  
+  function shadow(e) {
+    const { offsetWidth: width, offsetHeight: height } = hero
+    let { offsetX: x, offsetY: y } = e;
+
+
+    if(this !== e.target){
+      x = x + e.target.offsetLeft;
+      y = y + e.target.offsetTop;
+    }
+    
+    const xWalk = (x / width * walk) - (walk / 2);
+    const yWalk = (y / width * walk) - (walk / 2);
+    
+    text.style.textShadow = `
+    ${xWalk}px ${yWalk}px 0 rgba(255, 0, 255, 0.7),
+    ${xWalk * -1}px ${yWalk}px 0 rgba(0, 0, 255, 0.7)
+    `
+  }
+
+  hero.addEventListener('mousemove', shadow);
+</script>
+</html>
