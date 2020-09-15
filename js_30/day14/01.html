@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  //  string number and booleans
+  let age = 100
+  let age2 = age
+  console.log(age, age2);
+  age = 200
+  console.log(age, age2);
+
+  let name = 'gary'
+  let name2 = 'alan'
+  console.log(name, name2);
+  name = 'Eric'
+  console.log(name, name2);
+
+  // let's say we have an array
+  let numbers = [1, 2, 3, 4, 5]
+  let numbers2 = numbers
+  console.log(numbers2);
+
+  // you might think we can do something like this
+  // numbers2[2] = 10
+  // console.log(numbers);
+
+  // so if we like to copy an array
+
+  let numbers3 = numbers.slice()
+  numbers2[2] = 10
+  console.log(numbers);
+  console.log(numbers3);
+
+  // how to copy an object
+  const person = {
+    name: 'Gary',
+    age: 20
+  }
+  const man = person
+  man.age = 25
+  console.log(person);
+  const man2 = Object.assign({}, person, { age: 30 })
+  console.log(man);
+  console.log(man2);
+
+  // however the object.assogn can only assign first layer
+
+  const wes = {
+    name: 'wes',
+    was: 100,
+    social: {
+      facebook: 'wes.facebook'
+    }
+  }
+  const dev = Object.assign({}, wes)
+  dev.social.facebook = 'nononononoo'
+  console.log(wes); // oh ..... something wrong
+  // cheating way
+  const dev2 = JSON.parse(JSON.stringify(wes));
+  dev2.social.facebook = 'uuuuuuuuuuu'
+  console.log(dev2);
+</script>
+</html>
